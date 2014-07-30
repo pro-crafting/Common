@@ -59,4 +59,36 @@ public class Point {
 	{
 		return x+":"+y+":"+z;
 	}
+	
+	public void add(int x, int y, int z) {
+		this.x += x;
+		this.y += y;
+		this.z += z;
+	}
+	
+	public void add(Point value) {
+		if (value == null) {
+			return;
+		}
+		add(value.getX(), value.getY(), value.getZ());
+	}
+	
+	public void subtract(int x, int y, int z) {
+		this.x -= x;
+		this.y -= y;
+		this.z -= z;
+	}
+	
+	public void subtract(Point value) {
+		if (value == null) {
+			return;
+		}
+		add(value.getX(), value.getY(), value.getZ());
+	}
+	
+	public void multiply(int value) {
+		this.x *= value;
+		this.y *= value;
+		this.z *= value;
+	}
 }
