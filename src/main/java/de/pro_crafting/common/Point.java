@@ -7,7 +7,8 @@ public class Point {
 	private int x;
 	private int y;
 	private int z;
-
+	private final String seperator = "-";
+	
 	public Point(int x, int y, int z) {
 		this.x = x;
 		this.y = y;
@@ -21,7 +22,7 @@ public class Point {
 	}
 
 	public Point(String loc) {
-		String[] splited = loc.split(":");
+		String[] splited = loc.split(seperator);
 		this.x = Integer.parseInt(splited[0]);
 		this.y = Integer.parseInt(splited[1]);
 		this.z = Integer.parseInt(splited[2]);
@@ -57,7 +58,7 @@ public class Point {
 	
 	public String toString()
 	{
-		return x+":"+y+":"+z;
+		return x+seperator+y+seperator+z;
 	}
 	
 	public void add(int x, int y, int z) {
