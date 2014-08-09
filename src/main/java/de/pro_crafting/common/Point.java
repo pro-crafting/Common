@@ -7,7 +7,7 @@ public class Point {
 	private int x;
 	private int y;
 	private int z;
-	private final String seperator = "\\|";
+	private final String seperator = "|";
 	
 	public Point(int x, int y, int z) {
 		this.x = x;
@@ -22,7 +22,7 @@ public class Point {
 	}
 
 	public Point(String loc) {
-		String[] splited = loc.split(seperator);
+		String[] splited = loc.split("\\"+seperator);
 		this.x = Integer.parseInt(splited[0]);
 		this.y = Integer.parseInt(splited[1]);
 		this.z = Integer.parseInt(splited[2]);
