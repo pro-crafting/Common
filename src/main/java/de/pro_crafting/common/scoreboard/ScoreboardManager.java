@@ -8,27 +8,23 @@ import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Score;
 import org.bukkit.scoreboard.Scoreboard;
+import org.bukkit.scoreboard.Team;
 
-public class MetroScoreboardManager<T> {
+public class ScoreboardManager<T> {
 	private Map<T, Scoreboard> scoreboards;
 	
-	public MetroScoreboardManager() {
+	public ScoreboardManager() {
 		this.scoreboards = new HashMap<T, Scoreboard>();
 	}
 	
 	public int getScore(T key, String name, String objectiveName) {
 		Score score = getScoreObject(key, objectiveName, name);
-		if (score != null) {
-			return score.getScore();
-		}
-		return 0;
+		return score.getScore();
 	}
 	
 	public void setScore(T key, String name, int value, String objectiveName) {
 		Score score = getScoreObject(key, objectiveName, name);
-		if (score != null) {
-			score.setScore(value);
-		}
+		score.setScore(value);
 	}
 	
 	public void changeScoreName(T key, String originalName, String objectiveName, String name) {
@@ -65,6 +61,21 @@ public class MetroScoreboardManager<T> {
 		}
 	}
 	
+	public void clearScoreboard(T key) {
+		Scoreboard board = getScoreboard(key);
+		for (String entry : board.getEntries()) {
+			board.resetScores(entry);
+		}
+		
+		for (Objective obj : board.getObjectives()) {
+			board.getObjective(obj.getName()).unregister();
+		}
+		
+		for (Team team : board.getTeams()) {
+			board.getTeam(team.getName()).unregister();
+		}
+	}
+	
 	private Scoreboard getScoreboard(T key) {
 		this.addPlayer(key);
 		return scoreboards.get(key);
@@ -76,9 +87,6 @@ public class MetroScoreboardManager<T> {
 	
 	private Score getScoreObject(T key, String objective, String name) {
 		Objective obj = getObjective(key, objective);
-		if (obj != null) {
-			return obj.getScore(name);
-		}
-		return null;
+		return obj.getScore(name);
 	}
 }
