@@ -55,10 +55,11 @@ public class ScoreboardManager<T> {
 		}
 	}
 	
-	public void addPlayer(T key) {
+	private Scoreboard newScoreboard(T key) {
 		if (!scoreboards.containsKey(key)) {
 			scoreboards.put(key, Bukkit.getScoreboardManager().getNewScoreboard());
 		}
+		return scoreboards.get(key);
 	}
 	
 	public void clearScoreboard(T key) {
@@ -76,9 +77,8 @@ public class ScoreboardManager<T> {
 		}
 	}
 	
-	private Scoreboard getScoreboard(T key) {
-		this.addPlayer(key);
-		return scoreboards.get(key);
+	public Scoreboard getScoreboard(T key) {
+		return this.newScoreboard(key);
 	}
 	
 	private Objective getObjective(T key, String name) {
