@@ -64,16 +64,12 @@ public class ScoreboardManager<T> {
 	
 	public void clearScoreboard(T key) {
 		Scoreboard board = getScoreboard(key);
-		for (String entry : board.getEntries()) {
-			board.resetScores(entry);
-		}
-		
-		for (Objective obj : board.getObjectives()) {
-			board.getObjective(obj.getName()).unregister();
-		}
-		
 		for (Team team : board.getTeams()) {
 			board.getTeam(team.getName()).unregister();
+		}
+
+		for (Objective obj : board.getObjectives()) {
+			board.getObjective(obj.getName()).unregister();
 		}
 	}
 	
