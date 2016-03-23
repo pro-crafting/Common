@@ -21,6 +21,12 @@ public class Point {
 		this.z = from.getBlockZ();
 	}
 
+	public Point(Point from) {
+		this.x = from.getX();
+		this.y = from.getY();
+		this.z = from.getZ();
+	}
+
 	public Point(String loc) {
 		String[] splited = loc.split("\\"+seperator);
 		this.x = Integer.parseInt(splited[0]);
@@ -84,7 +90,7 @@ public class Point {
 		if (value == null) {
 			return;
 		}
-		add(value.getX(), value.getY(), value.getZ());
+		subtract(value.getX(), value.getY(), value.getZ());
 	}
 	
 	public void multiply(int value) {
