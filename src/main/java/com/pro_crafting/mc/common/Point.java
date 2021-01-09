@@ -1,4 +1,4 @@
-package de.pro_crafting.common;
+package com.pro_crafting.mc.common;
 
 import org.bukkit.Location;
 import org.bukkit.World;

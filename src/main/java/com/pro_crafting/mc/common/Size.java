@@ -1,4 +1,4 @@
-package de.pro_crafting.common;
+package com.pro_crafting.mc.common;
 
 public class Size {
 	private int height;

@@ -1,4 +1,4 @@
-package de.pro_crafting.common.scoreboard;
+package com.pro_crafting.mc.common.scoreboard;
 
 import java.util.HashMap;
 import java.util.Map;
