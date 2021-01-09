@@ -9,13 +9,13 @@
 
 	<groupId>com.pro-crafting.mc</groupId>
 	<artifactId>common</artifactId>
-	<version>0.2.1-SNAPSHOT</version>
+	<version>0.2.1</version>
 
 	<scm>
 		<connection>scm:git:git@github.com:pro-crafting/Common.git</connection>
 		<url>https://github.com/pro-crafting/Common</url>
 		<developerConnection>scm:git:git@github.com:pro-crafting/Common.git</developerConnection>
-		<tag>HEAD</tag>
+		<tag>common-0.2.1</tag>
 	</scm>
 
 	<properties>
